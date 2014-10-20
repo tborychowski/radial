@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<title>graphtest</title>
+<style>#canvas { background: #f0f0f0; width: 400px; height: 360px; }</style>
+</head>
+<body>
+
+<div id="canvas"></div>
+
+<script src="d3.min.js"></script>
+<script src="radial.js"></script>
+<script>
+	var
+	lim = 3,
+	max = 2000,
+	rand = function (max, min) { min = min || 0; return Math.floor(Math.random() * (max - min + 1) + min); },
+
+	update = function () {
+		setTimeout(function () {
+			window.graph.update([ rand(0, max), rand(0, max), rand(0, max), rand(0, max) ]);
+			if (--lim) update();
+		}, 2000);
+	};
+
+	window.graph = window.Radial({
+		target: document.getElementById('canvas'),
+		max: max,
+		data: [0, 0, 0, 0],
+		labels: [
+			function (v, p, c) { return 'One: ' + p + '($' + c + ')'; },
+			function (v, p, c) { return 'Two: ' + p + '%'; },
+			function (v, p, c) { return 'Three: $' + c; },
+			function (v, p, c) { return 'Your: ' + p + '% (' + v + ')'; },
+		]
+	});
+
+	update();
+
+</script>
+</body>
