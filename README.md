@@ -30,3 +30,6 @@ graph.update([ 20, 30, 40 ], newMax);
 // call this when container size changed
 graph.draw();
 ```
+
+###License
+*MIT*
