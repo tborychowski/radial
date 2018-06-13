@@ -4,11 +4,11 @@ multi-series responsive donut chart in d3
 
 **[DEMO](http://htmlpreview.github.io/?https://raw.githubusercontent.com/tborychowski/radial/master/index.html)**
 
-###Screenshot
+### Screenshot
 ![Radial](screen.png)
 
 
-###Usage
+### Usage
 
 ```javascript
 // init
